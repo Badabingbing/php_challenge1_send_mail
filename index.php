@@ -21,9 +21,9 @@
 	<?php
 		$decoupEmail = explode(", ", $_POST["adresse2"]);		
 		foreach ($decoupEmail as $email) {
-			if (!(filter_var($email, FILTER_VALIDATE_EMAIL))) {
+			if (!(filter_var($email, FILTER_VALIDATE_EMAIL)) AND isset($_POST["adresse2"])) {
 			echo "Cette adresse n'est pas valide. Le format demandé est exemple@email.com";
-		}
+			}
 		}
 		
 		/*if (!(filter_var($_POST["adresse2"], FILTER_VALIDATE_EMAIL)) AND isset($_POST['adresse2'])) {
@@ -44,7 +44,7 @@
 	$headers = "From: " . $_POST["adresse1"];
 	
 	if ((filter_var($_POST["adresse1"], FILTER_VALIDATE_EMAIL))
-		AND (filter_var($_POST["adresse2"], FILTER_VALIDATE_EMAIL))) {
+		/*AND (filter_var($_POST["adresse2"], FILTER_VALIDATE_EMAIL))*/) {
 	mail($_POST["adresse2"], $_POST["sujet"], $_POST["message"], $headers);
 	echo "Votre message a bien été envoyé.";
 	}
