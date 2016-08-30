@@ -45,7 +45,7 @@
 	
 	
 	if ((filter_var($_POST["adresse1"], FILTER_VALIDATE_EMAIL))
-		/*AND (filter_var($_POST["adresse2"], FILTER_VALIDATE_EMAIL))*/
+		/*AND (filter_var($_POST["adresse2"], FILTER_VALIDATE_EMAIL))*/)
 		 {
 	mail($_POST["adresse2"], $_POST["sujet"], $_POST["message"], $headers);
 	echo "Votre message a bien été envoyé.";
